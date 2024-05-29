@@ -1,0 +1,71 @@
+$primary: #2272af;
+$secondary: #abbac9;
+$danger: #B05F21;
+$info: #21B0A2;
+$dark: #232C33;
+$warning: #B08821;
+
+@import '../node_modules/bootstrap/scss/bootstrap.scss';
+
+:root {
+    --bs-body-color: var(--bs-dark);
+}
+
+html,
+body,
+#root {
+    height: 100%;
+}
+
+hr {
+    --bs-border-width: 5px;
+    opacity: 1;
+    border-radius: 3rem
+}
+
+a {
+    text-decoration: none;
+}
+
+body {
+    background: url('/bg.png') var(--bs-light);
+
+    &::-webkit-scrollbar {
+        background-color: var(--bs-light);
+        width: 0.5rem;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        background-color: var(--bs-dark);
+        border-radius: 1px;
+    }
+}
+
+.fs-18 {
+    font-size: 18pt;
+}
+
+.fs-16 {
+    font-size: 16pt;
+}
+
+.fs-14 {
+    font-size: 14pt;
+}
+
+.fs-12 {
+    font-size: 12pt;
+}
+
+.fs-10 {
+    font-size: 10pt;
+}
+
+.fs-8 {
+    font-size: 8pt;
+}
+
+.logo {
+    background: var(--bs-light);
+    border-radius: 25%;
+}
