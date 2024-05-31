@@ -14,7 +14,7 @@ export default function OnCall() {
     return (
         <>
             <div className='d-flex flex-column align-items-center py-5'>
-                <div className='display-5 mb-4'>On Call and Baby-Sitting Schedule</div>
+                <div className='display-5 mb-4 text-center'>On Call and Baby-Sitting Schedule</div>
             </div>
 
             <div className='bg-white'>
