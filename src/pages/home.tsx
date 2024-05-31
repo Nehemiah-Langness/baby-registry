@@ -26,7 +26,7 @@ export default function Profile() {
                         <SubHeader>Watching our other kids</SubHeader>
                     </div>
                     <DetailSection>
-                        <DetailText>We don't have any family close by, so we need to rely on friends to stay with our kids while we are in the hospital.</DetailText>
+                        <DetailText>We don't have any family close by, so we need to rely heavily on friends to stay with our kids while we are in the hospital.</DetailText>
                         <DetailText>Before we can head to the hospital, we'll need someone to call who can get to our house quickly.</DetailText>
                         <DetailText>Once the baby is born, we hope to be back after 6 hours, but if there are complications, we'll need sitters for up two days.</DetailText>
                         <Link className='btn btn-outline-primary' to='/on-call'>
