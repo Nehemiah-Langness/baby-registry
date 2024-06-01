@@ -4,6 +4,7 @@ import { Layout } from './pages/layout';
 import Home from './pages/home';
 import OnCall from './pages/on-call';
 import Trains from './pages/trains';
+import Registry from './pages/registry';
 import Error from './pages/error';
 
 const router = createBrowserRouter(
@@ -13,6 +14,7 @@ const router = createBrowserRouter(
                 <Route path='/' element={<Home />} />
                 <Route path='/on-call' element={<OnCall />} />
                 <Route path='/trains' element={<Trains />} />
+                <Route path='/registry' element={<Registry />} />
             </Route>
         </Route>
     )

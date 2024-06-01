@@ -5,7 +5,17 @@ import { normalizeDate } from '../../services/normalize-date';
 import { getMonth } from '../../services/get-month';
 import { Day } from './day';
 
-export function Calendar({ endDate, startDate, volunteers }: { startDate: Date; endDate: Date; volunteers: { date: Date; partial?: boolean; volunteers: string[] }[] }) {
+export function Calendar({
+    endDate,
+    startDate,
+    volunteers,
+    inactive,
+}: {
+    startDate: Date;
+    endDate: Date;
+    volunteers: { date: Date; partial?: boolean; volunteers: string[] }[];
+    inactive?: boolean;
+}) {
     const { end, first, last, start } = useMemo(() => {
         const normalizedStartDate = normalizeDate(startDate);
         const normalizedEndDate = normalizeDate(endDate);
@@ -83,6 +93,12 @@ export function Calendar({ endDate, startDate, volunteers }: { startDate: Date; 
                                 {ii !== 0 && new Array(7 - week.length).fill(0).map((_x, iii) => <div key={'filler' + iii} className='col border bg-light'></div>)}
                             </div>
                         ))}
+
+                        {inactive ? (
+                            <div className='position-absolute top-0 bottom-0 start-0 end-0 d-flex justify-content-center text-light align-items-center text-center' style={{background: 'rgba(var(--bs-dark-rgb), 0.75)'}}>
+                                We need to wait until the baby comes to schedule specific days
+                            </div>
+                        ) : null}
                     </div>
                 </div>
             ))}
