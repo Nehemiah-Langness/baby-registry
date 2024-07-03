@@ -95,7 +95,10 @@ export function Calendar({
                         ))}
 
                         {inactive ? (
-                            <div className='position-absolute top-0 bottom-0 start-0 end-0 d-flex justify-content-center text-light align-items-center text-center' style={{background: 'rgba(var(--bs-dark-rgb), 0.75)'}}>
+                            <div
+                                className='position-absolute top-0 bottom-0 start-0 end-0 d-flex justify-content-center text-light align-items-center text-center'
+                                style={{ background: 'rgba(var(--bs-dark-rgb), 0.75)' }}
+                            >
                                 We need to wait until the baby comes to schedule specific days
                             </div>
                         ) : null}

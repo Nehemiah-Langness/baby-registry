@@ -76,6 +76,5 @@ function distinct(list: string[]) {
     const distinct = Object.entries(list.reduce((c, n) => ({ ...c, [n.split('|')[0]]: (c[n.split('|')[0]] ?? []).concat(n) }), {} as { [index: string]: string[] })).map(
         ([key, values]) => ({ key, values })
     );
-    console.log(distinct);
     return distinct;
 }

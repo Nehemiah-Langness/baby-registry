@@ -3,7 +3,7 @@ import { faBaby, faBabyCarriage, faHandsHoldingChild } from '@fortawesome/free-s
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { memo } from 'react';
 import { Link } from 'react-router-dom';
-import "./carousel-slide.scss"
+import './carousel-slide.scss';
 import { SubHeader } from '../components/sub-header';
 import { DetailText } from '../components/detail-text';
 import { DetailSection } from '../components/detail-section';
@@ -19,8 +19,7 @@ export default function Profile() {
             <div className='container text-center py-5'>
                 <Header>Here are the ways you can help</Header>
             </div>
-
-            <div className='bg-white'>
+            {/* <div className='bg-white'>
                 <div className='container py-5'>
                     <div className='text-center pb-5'>
                         <SubHeader>Watching our other kids</SubHeader>
@@ -34,8 +33,8 @@ export default function Profile() {
                         </Link>
                     </DetailSection>
                 </div>
-            </div>
-            <div className='bg-light'>
+            </div> */}
+            <div className='bg-white'>
                 <div className='container py-5'>
                     <div className='text-center pb-5'>
                         <SubHeader>Bringing meals</SubHeader>
@@ -44,13 +43,13 @@ export default function Profile() {
                         <DetailText>Once we have in infant at home, we would love to not worry about cooking for a few days.</DetailText>
                         <DetailText>We have no dietary restrictions or requirements, so anything you can cook we can eat.</DetailText>
                         <DetailText>If you don't enjoy cooking, but still would like to provide food, you can have food delivered.</DetailText>
-                        <Link className='btn btn-outline-primary' to='/trains'>
+                        <Link className='btn btn-outline-primary' to='/meal-train'>
                             If you want to sign up for a meal train and want more details, click here
                         </Link>
                     </DetailSection>
                 </div>
             </div>
-            <div className='bg-white'>
+            <div className='bg-light'>
                 <div className='container py-5'>
                     <div className='text-center pb-5'>
                         <SubHeader>Helping with yard work</SubHeader>
@@ -59,13 +58,13 @@ export default function Profile() {
                         <DetailText>I'll be taking care of three kids and a recovering wife, so mowing the lawn might need to fall to the back-burner.</DetailText>
                         <DetailText>We have just under a quarter-acre lot that needs mowed once a week.</DetailText>
                         <DetailText>We have an self-propelled walk-behind mower, but if you have a riding lawnmower you can use, your legs will thank you.</DetailText>
-                        <Link className='btn btn-outline-primary' to='/trains'>
+                        <Link className='btn btn-outline-primary' to='/yard-work'>
                             If you want to sign up to help with yard work and want more details, click here
                         </Link>
                     </DetailSection>
                 </div>
             </div>
-            <div className='bg-light'>
+            <div className='bg-white'>
                 <div className='container py-5'>
                     <div className='text-center pb-5'>
                         <SubHeader>Shop our baby registry</SubHeader>
@@ -90,7 +89,7 @@ const Carousel = memo(() => (
             height: '20rem',
         }}
     >
-        <div className='carousel-slide' style={{width: '80rem'}}>
+        <div className='carousel-slide' style={{ width: '80rem' }}>
             <div
                 className='d-flex justify-content-center align-items-center'
                 style={{
@@ -130,5 +129,3 @@ const Carousel = memo(() => (
         </div>
     </div>
 ));
-
-
