@@ -15,7 +15,7 @@ export function Navbar() {
     return (
         <nav className='navbar bg-primary navbar-expand-lg' data-bs-theme='dark'>
             <div className='container-fluid'>
-                <Link className='navbar-brand' to='https://n-lang.dev'>
+                <Link className='navbar-brand' to='/'>
                     <Branding height='3rem' />
                 </Link>
                 <button
