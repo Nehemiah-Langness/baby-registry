@@ -5,7 +5,7 @@ import { Calendar } from '../components/calendar/calendar';
 import { yardWork } from '../data/yard-work';
 import { SignUp } from '../components/sign-up';
 
-const yardWorkStartDate = new Date(2024, 6, 20);
+const yardWorkStartDate = new Date(2024, 6, 7);
 const yardWorkEndDate = new Date(2024, 7, 24);
 
 export default function Trains() {

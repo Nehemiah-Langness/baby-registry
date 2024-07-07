@@ -1,5 +1,53 @@
 [
     {
+        "date": "2024-7-20",
+        "volunteers": ["Sarah B."]
+    },
+    {
+        "date": "2024-7-21",
+        "volunteers": ["Sarah B."]
+    },
+    {
+        "date": "2024-7-22",
+        "volunteers": ["Sarah B."]
+    },
+    {
+        "date": "2024-7-23",
+        "volunteers": ["Sarah B."]
+    },
+    {
+        "date": "2024-7-24",
+        "volunteers": ["Linda B."]
+    },
+    {
+        "date": "2024-7-25",
+        "volunteers": ["Linda B."]
+    },
+    {
+        "date": "2024-7-26",
+        "volunteers": ["Linda B."]
+    },
+    {
+        "date": "2024-7-27",
+        "volunteers": ["Linda B."]
+    },
+    {
+        "date": "2024-7-28",
+        "volunteers": ["Linda B."]
+    },
+    {
+        "date": "2024-7-29",
+        "volunteers": ["Linda B."]
+    },
+    {
+        "date": "2024-7-30",
+        "volunteers": ["Linda B."]
+    },
+    {
+        "date": "2024-7-31",
+        "volunteers": ["Linda B."]
+    },
+    {
         "date": "2024-8-1",
         "volunteers": ["Linda B."]
     },
@@ -22,5 +70,17 @@
     {
         "date": "2024-8-6",
         "volunteers": ["Linda B."]
+    },
+    {
+        "date": "2024-8-7",
+        "volunteers": ["Esther L."]
+    },
+    {
+        "date": "2024-8-8",
+        "volunteers": ["Esther L."]
+    },
+    {
+        "date": "2024-8-9",
+        "volunteers": ["Esther L."]
     }
 ]

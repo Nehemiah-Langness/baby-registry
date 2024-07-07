@@ -5,7 +5,7 @@ import { Calendar } from '../components/calendar/calendar';
 import { mealTrain } from '../data/meal-train';
 import { SignUp } from '../components/sign-up';
 
-const mealTrainStartDate = new Date(2024, 7, 5);
+const mealTrainStartDate = new Date(2024, 6, 7);
 const mealTrainEndDate = new Date(2024, 8, 14);
 
 export default function MealTrain() {
