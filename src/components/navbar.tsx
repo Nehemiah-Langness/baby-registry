@@ -33,7 +33,7 @@ export function Navbar() {
                     <ul className='navbar-nav'>
                         <NavLink label='Home' location={pathname} to='/' />
                         {/* <NavLink label='On Call List' location={pathname} to='/on-call' /> */}
-                        <NavLink label='Meal Trains' location={pathname} to='/meal-train' />
+                        <NavLink label='Meal Train' location={pathname} to='/meal-train' />
                         <NavLink label='Yard Work' location={pathname} to='/yard-work' />
                         <NavLink label='Registry' location={pathname} to='/registry' />
                     </ul>
