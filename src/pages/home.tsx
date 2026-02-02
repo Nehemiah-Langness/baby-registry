@@ -1,5 +1,5 @@
 import { faAmazon } from '@fortawesome/free-brands-svg-icons';
-import { faBaby, faBabyCarriage, faHandsHoldingChild } from '@fortawesome/free-solid-svg-icons';
+import { faBaby, faBabyCarriage, faChevronRight, faHandsHoldingChild } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { memo } from 'react';
 import { Link } from 'react-router-dom';
@@ -8,6 +8,7 @@ import { SubHeader } from '../components/sub-header';
 import { DetailText } from '../components/detail-text';
 import { DetailSection } from '../components/detail-section';
 import { Header } from '../components/header';
+import Diapers from '../assets/diapers.svg?react';
 
 export default function Profile() {
     return (
@@ -43,13 +44,16 @@ export default function Profile() {
                         <DetailText>Once we have in infant at home, we would love to not worry about cooking for a few days.</DetailText>
                         <DetailText>We have no dietary restrictions or requirements, so anything you can cook we can eat.</DetailText>
                         <DetailText>If you don't enjoy cooking, but still would like to provide food, you can have food delivered.</DetailText>
-                        <Link className='btn btn-outline-primary' to='/meal-train'>
-                            If you want to sign up for a meal train and want more details, click here
-                        </Link>
+                        <div className='d-flex justify-content-center'>
+                            <Link className='btn btn-primary d-flex align-items-center gap-2' to='/meal-train'>
+                                <FontAwesomeIcon icon={faChevronRight} />
+                                If you want to sign up for a meal train and want more details, click here
+                            </Link>
+                        </div>
                     </DetailSection>
                 </div>
             </div>
-            <div className='bg-light'>
+            {/* <div className='bg-light'>
                 <div className='container py-5'>
                     <div className='text-center pb-5'>
                         <SubHeader>Helping with yard work</SubHeader>
@@ -63,8 +67,8 @@ export default function Profile() {
                         </Link>
                     </DetailSection>
                 </div>
-            </div>
-            <div className='bg-white'>
+            </div> */}
+            <div className='bg-light'>
                 <div className='container py-5'>
                     <div className='text-center pb-5'>
                         <SubHeader>Shop our baby registry</SubHeader>
@@ -73,6 +77,18 @@ export default function Profile() {
                         <DetailText>You can click on the link below to see our registry on Amazon.</DetailText>
                         <a className='btn btn-dark' href='https://www.amazon.com/baby-reg/brainna-langness-august-2024-saintcharles/10GFEYPIMMBCY' target='_blank' rel='noreferrer'>
                             <FontAwesomeIcon className='display-5' icon={faAmazon} />
+                        </a>
+                    </DetailSection>
+                    <br />
+                    <DetailSection>
+                        <DetailText>Or send us diapers from the link below</DetailText>
+                        <a
+                            className='btn btn-dark'
+                            href='https://everylife.com/collections/diaper-collection/products/everylife-diapers?variant=50896563405080'
+                            target='_blank'
+                            rel='noreferrer'
+                        >
+                            <Diapers height='3rem' />
                         </a>
                     </DetailSection>
                 </div>

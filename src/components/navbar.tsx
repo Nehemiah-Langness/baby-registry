@@ -34,7 +34,7 @@ export function Navbar() {
                         <NavLink label='Home' location={pathname} to='/' />
                         {/* <NavLink label='On Call List' location={pathname} to='/on-call' /> */}
                         <NavLink label='Meal Train' location={pathname} to='/meal-train' />
-                        <NavLink label='Yard Work' location={pathname} to='/yard-work' />
+                        {/* <NavLink label='Yard Work' location={pathname} to='/yard-work' /> */}
                         <NavLink label='Registry' location={pathname} to='/registry' />
                     </ul>
                 </div>

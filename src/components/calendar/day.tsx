@@ -1,4 +1,5 @@
 import { useMemo, useState } from 'react';
+import { Link } from 'react-router-dom';
 
 export function Day({ date, end, start, volunteers }: { date: Date; start: Date; end: Date; volunteers: { date: Date; partial?: boolean; volunteers: string[] }[] }) {
     const coverage = useMemo(() => volunteers.find((x) => x.date.valueOf() === date.valueOf()), [date, volunteers]);
@@ -29,18 +30,18 @@ export function Day({ date, end, start, volunteers }: { date: Date; start: Date;
                 state === 'out-of-range'
                     ? 'bg-light text-secondary'
                     : state === 'covered'
-                    ? 'bg-success-subtle border-success-subtle'
-                    : state === 'partial'
-                    ? 'bg-danger-subtle border-danger-subtle'
-                    : 'bg-white'
-            } calendar-day ${active ? 'active' : ''} ${isInteractableState ? 'hoverable' : ''}`}
+                      ? 'bg-success-subtle border-success-subtle'
+                      : state === 'partial'
+                        ? 'bg-danger-subtle border-danger-subtle'
+                        : 'bg-white'
+            } calendar-day ${active ? 'active d-flex flex-column' : ''} ${isInteractableState ? 'hoverable' : ''}`}
             onClick={isInteractableState ? () => setActive(true) : undefined}
         >
             {active ? (
                 <>
-                    <div className='d-flex justify-content-between align-items-center'>
+                    <div className='d-flex justify-content-between align-items-start'>
                         <div>
-                            <span className='fs-18'>{date.getDate()}</span>
+                            <span className='display-1'>{date.getDate()}</span>
                         </div>
                         <div>
                             <button type='button' className='btn btn-close' onClick={() => setActive(false)}></button>
@@ -54,6 +55,11 @@ export function Day({ date, end, start, volunteers }: { date: Date; start: Date;
                             </div>
                         ))}
                     </div>
+                    {!coverage?.volunteers.length ? (
+                        <div className='d-flex align-items-center justify-content-center flex-grow-1'>
+                            <Link to={'/sign-up'}>We have no volunteers for this day - would you like to sign-up?</Link>
+                        </div>
+                    ) : null}
                 </>
             ) : (
                 <>
