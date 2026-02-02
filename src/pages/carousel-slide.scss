@@ -1,5 +1,5 @@
 .carousel-slide {
-    animation: carousel-slide 10s ease-in-out infinite;
+    animation: carousel-slide 12s ease-in-out infinite;
     position: relative;
     display: flex;
 }
@@ -12,7 +12,7 @@
         left: 0;
     }
     30% {
-        left: -25rem;
+        left: -22rem;
     }
     33%  {
         left: -20rem;
@@ -21,7 +21,7 @@
         left: -20rem;
     }
     63% {
-        left: -45rem;
+        left: -42rem;
     }
     66%  {
         left: -40rem;
@@ -30,7 +30,7 @@
         left: -40rem;
     }
     96% {
-        left: -65rem;
+        left: -62rem;
     }
     99%  {
         left: -60rem;

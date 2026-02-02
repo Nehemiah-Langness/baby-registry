@@ -10,9 +10,11 @@ export function Calendar({
     startDate,
     volunteers,
     inactive,
+    dueDate,
 }: {
     startDate: Date;
     endDate: Date;
+    dueDate: Date;
     volunteers: { date: Date; partial?: boolean; volunteers: string[] }[];
     inactive?: boolean;
 }) {
@@ -84,15 +86,17 @@ export function Calendar({
                 <div key={i}>
                     <div className='h2 fw-light text-center mb-1 mt-2'>{getMonth(month[0]?.[0]?.getMonth())}</div>
                     <div className='bg-white border container position-relative'>
-                        {month.map((week, ii) => (
-                            <div key={ii} className='row'>
-                                {ii === 0 && new Array(7 - week.length).fill(0).map((_x, iii) => <div key={'filler' + iii} className='col border bg-light'></div>)}
-                                {week.map((day, iii) => (
-                                    <Day key={iii} date={day} end={end} start={start} volunteers={volunteers}></Day>
-                                ))}
-                                {ii !== 0 && new Array(7 - week.length).fill(0).map((_x, iii) => <div key={'filler' + iii} className='col border bg-light'></div>)}
-                            </div>
-                        ))}
+                        {month.map((week, ii) =>
+                            week.every((d) => d < start || d > end) ? null : (
+                                <div key={ii} className='row'>
+                                    {ii === 0 && new Array(7 - week.length).fill(0).map((_x, iii) => <div key={'filler' + iii} className='col border bg-light'></div>)}
+                                    {week.map((day, iii) => (
+                                        <Day key={iii} date={day} end={end} start={start} dueDate={dueDate} volunteers={volunteers}></Day>
+                                    ))}
+                                    {ii !== 0 && new Array(7 - week.length).fill(0).map((_x, iii) => <div key={'filler' + iii} className='col border bg-light'></div>)}
+                                </div>
+                            )
+                        )}
 
                         {inactive ? (
                             <div

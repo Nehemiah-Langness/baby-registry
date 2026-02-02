@@ -1,7 +1,21 @@
+import { faBaby } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useMemo, useState } from 'react';
 import { Link } from 'react-router-dom';
 
-export function Day({ date, end, start, volunteers }: { date: Date; start: Date; end: Date; volunteers: { date: Date; partial?: boolean; volunteers: string[] }[] }) {
+export function Day({
+    date,
+    end,
+    start,
+    volunteers,
+    dueDate,
+}: {
+    date: Date;
+    start: Date;
+    end: Date;
+    dueDate?: Date;
+    volunteers: { date: Date; partial?: boolean; volunteers: string[] }[];
+}) {
     const coverage = useMemo(() => volunteers.find((x) => x.date.valueOf() === date.valueOf()), [date, volunteers]);
 
     const [active, setActive] = useState(false);
@@ -26,22 +40,36 @@ export function Day({ date, end, start, volunteers }: { date: Date; start: Date;
 
     return (
         <div
-            className={`col border ${
-                state === 'out-of-range'
-                    ? 'bg-light text-secondary'
-                    : state === 'covered'
-                      ? 'bg-success-subtle border-success-subtle'
-                      : state === 'partial'
-                        ? 'bg-danger-subtle border-danger-subtle'
-                        : 'bg-white'
-            } calendar-day ${active ? 'active d-flex flex-column' : ''} ${isInteractableState ? 'hoverable' : ''}`}
+            className={`col border calendar-day d-flex flex-column ${
+                active
+                    ? 'active '
+                    : state === 'out-of-range'
+                      ? 'bg-light text-secondary'
+                      : state === 'covered'
+                        ? 'bg-success-subtle border-success-subtle'
+                        : state === 'partial'
+                          ? 'bg-danger-subtle border-danger-subtle'
+                          : 'bg-white'
+            } ${isInteractableState ? 'hoverable' : ''}`}
             onClick={isInteractableState ? () => setActive(true) : undefined}
         >
             {active ? (
-                <>
+                <div
+                    className={`d-flex flex-column flex-grow-1 p-3 rounded ${
+                        state === 'out-of-range'
+                            ? 'bg-light text-secondary'
+                            : state === 'covered'
+                              ? 'bg-success-subtle border-success-subtle'
+                              : state === 'partial'
+                                ? 'bg-danger-subtle border-danger-subtle'
+                                : 'bg-white'
+                    }`}
+                >
                     <div className='d-flex justify-content-between align-items-start'>
                         <div>
-                            <span className='display-1'>{date.getDate()}</span>
+                            <span className='display-1'>
+                                {date.getDate()} {dueDate?.valueOf() === date.valueOf() ? <span className='text-primary fw-bold display-5'>Due Date!</span> : null}{' '}
+                            </span>
                         </div>
                         <div>
                             <button type='button' className='btn btn-close' onClick={() => setActive(false)}></button>
@@ -60,10 +88,20 @@ export function Day({ date, end, start, volunteers }: { date: Date; start: Date;
                             <Link to={'/sign-up'}>We have no volunteers for this day - would you like to sign-up?</Link>
                         </div>
                     ) : null}
-                </>
+                </div>
             ) : (
                 <>
-                    <span className='fs-18'>{date.getDate()}</span>
+                    <div className='d-flex align-items-center justify-content-center gap-2 fs-18'>
+                        {dueDate?.valueOf() === date.valueOf() ? (
+                            <div
+                                style={{ height: '1em', width: '1em', background: 'var(--bs-primary-bg-subtle)' }}
+                                className='rounded-circle d-flex align-items-center justify-content-center'
+                            >
+                                <FontAwesomeIcon style={{ fontSize: '0.8em' }} className='text-primary' icon={faBaby} />
+                            </div>
+                        ) : null}{' '}
+                        {date.getDate()}
+                    </div>
                     <div className='d-none d-lg-block'>
                         {distinct(coverage?.volunteers ?? []).map(({ key: volunteer, values: instances }, i) => (
                             <div key={i} className='d-flex justify-content-between' style={{ maxWidth: '15rem' }}>

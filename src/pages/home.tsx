@@ -1,5 +1,5 @@
 import { faAmazon } from '@fortawesome/free-brands-svg-icons';
-import { faBaby, faBabyCarriage, faChevronRight, faHandsHoldingChild } from '@fortawesome/free-solid-svg-icons';
+import { faBaby, faBabyCarriage, faCakeCandles, faChevronDown, faChevronRight } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { memo } from 'react';
 import { Link } from 'react-router-dom';
@@ -9,17 +9,31 @@ import { DetailText } from '../components/detail-text';
 import { DetailSection } from '../components/detail-section';
 import { Header } from '../components/header';
 import Diapers from '../assets/diapers.svg?react';
+import { config } from '../config';
+import { IconProp } from '@fortawesome/fontawesome-svg-core';
+import { NavbarComponent } from '../components/navbar';
+import { PageHeader } from '../components/page-header';
 
-export default function Profile() {
+export default function Home() {
     return (
         <>
-            <div className='d-flex flex-column align-items-center py-5'>
-                <div className='display-5 mb-4'>We are having a baby!</div>
-                <Carousel />
+            <div className='d-flex flex-column' style={{ minHeight: '100vh' }}>
+                <div className='opacity-0'>
+                    <NavbarComponent />
+                </div>
+                <div className='d-flex flex-column align-items-center justify-content-center flex-grow-1'>
+                    <div className='d-flex flex-column align-items-center justify-content-center'>
+                        <PageHeader>We are having a baby!</PageHeader>
+                        <Carousel />
+                    </div>
+                </div>
+                <div className='container text-center py-5'>
+                    <SubHeader>
+                        <FontAwesomeIcon icon={faChevronDown} bounce /> Here are the ways you can help <FontAwesomeIcon icon={faChevronDown} bounce />
+                    </SubHeader>
+                </div>
             </div>
-            <div className='container text-center py-5'>
-                <Header>Here are the ways you can help</Header>
-            </div>
+
             {/* <div className='bg-white'>
                 <div className='container py-5'>
                     <div className='text-center pb-5'>
@@ -35,22 +49,22 @@ export default function Profile() {
                     </DetailSection>
                 </div>
             </div> */}
-            <div className='bg-white'>
+            <div className='bg-white d-flex flex-column justify-content-center' style={{ minHeight: '75vh' }}>
                 <div className='container py-5'>
                     <div className='text-center pb-5'>
-                        <SubHeader>Bringing meals</SubHeader>
+                        <Header>Bringing meals</Header>
                     </div>
                     <DetailSection>
-                        <DetailText>Once we have in infant at home, we would love to not worry about cooking for a few days.</DetailText>
+                        <DetailText>We would greatly appreciate having meals provided during the first days of having our newborn at home.</DetailText>
                         <DetailText>We have no dietary restrictions or requirements, so anything you can cook we can eat.</DetailText>
-                        <DetailText>If you don't enjoy cooking, but still would like to provide food, you can have food delivered.</DetailText>
-                        <div className='d-flex justify-content-center'>
-                            <Link className='btn btn-primary d-flex align-items-center gap-2' to='/meal-train'>
-                                <FontAwesomeIcon icon={faChevronRight} />
-                                If you want to sign up for a meal train and want more details, click here
-                            </Link>
-                        </div>
+                        <DetailText>If you don't enjoy cooking, but still would like to provide food, you can have food delivered or drop-off takeout.</DetailText>
                     </DetailSection>
+                </div>
+                <div className='d-flex justify-content-center pb-5'>
+                    <Link className='btn btn-primary d-flex align-items-center gap-2' to='/meal-train'>
+                        <FontAwesomeIcon icon={faChevronRight} />
+                        View our meal train coverage
+                    </Link>
                 </div>
             </div>
             {/* <div className='bg-light'>
@@ -68,26 +82,27 @@ export default function Profile() {
                     </DetailSection>
                 </div>
             </div> */}
-            <div className='bg-light'>
+            <div className='bg-light d-flex flex-column justify-content-center' style={{ minHeight: '75vh' }}>
                 <div className='container py-5'>
                     <div className='text-center pb-5'>
-                        <SubHeader>Shop our baby registry</SubHeader>
+                        <Header>Shop our baby registry</Header>
                     </div>
                     <DetailSection>
-                        <DetailText>You can click on the link below to see our registry on Amazon.</DetailText>
-                        <a className='btn btn-dark' href='https://www.amazon.com/baby-reg/brainna-langness-august-2024-saintcharles/10GFEYPIMMBCY' target='_blank' rel='noreferrer'>
+                        <DetailText>Even though we already have had a few kids already, there are some items that are worn out and could stand to be replaced.</DetailText>
+                        <DetailText>There is also always a need for on-going necessities such as diapers and wipes.</DetailText>
+                    </DetailSection>
+                    <br />
+
+                    <DetailSection className='d-flex flex-column align-items-center gap-3'>
+                        <SubHeader>You can click on the link below to see our registry on Amazon.</SubHeader>
+                        <a className='btn btn-dark' href={config.registryUrl} target='_blank' rel='noreferrer'>
                             <FontAwesomeIcon className='display-5' icon={faAmazon} />
                         </a>
                     </DetailSection>
                     <br />
-                    <DetailSection>
-                        <DetailText>Or send us diapers from the link below</DetailText>
-                        <a
-                            className='btn btn-dark'
-                            href='https://everylife.com/collections/diaper-collection/products/everylife-diapers?variant=50896563405080'
-                            target='_blank'
-                            rel='noreferrer'
-                        >
+                    <DetailSection className='d-flex flex-column align-items-center gap-3'>
+                        <SubHeader>Or send us diapers from the link below</SubHeader>
+                        <a className='btn btn-dark' href={config.diaperUrl} target='_blank' rel='noreferrer'>
                             <Diapers height='3rem' />
                         </a>
                     </DetailSection>
@@ -106,42 +121,22 @@ const Carousel = memo(() => (
         }}
     >
         <div className='carousel-slide' style={{ width: '80rem' }}>
-            <div
-                className='d-flex justify-content-center align-items-center'
-                style={{
-                    width: '20rem',
-                    height: '20rem',
-                }}
-            >
-                <FontAwesomeIcon className='text-primary text-center' style={{ fontSize: '12rem' }} icon={faBabyCarriage} />
-            </div>
-            <div
-                className='d-flex justify-content-center align-items-center'
-                style={{
-                    width: '20rem',
-                    height: '20rem',
-                }}
-            >
-                <FontAwesomeIcon className='text-primary text-center' style={{ fontSize: '12rem' }} icon={faBaby} />
-            </div>
-            <div
-                className='d-flex justify-content-center align-items-center'
-                style={{
-                    width: '20rem',
-                    height: '20rem',
-                }}
-            >
-                <FontAwesomeIcon className='text-primary text-center' style={{ fontSize: '12rem' }} icon={faHandsHoldingChild} />
-            </div>
-            <div
-                className='d-flex justify-content-center align-items-center'
-                style={{
-                    width: '20rem',
-                    height: '20rem',
-                }}
-            >
-                <FontAwesomeIcon className='text-primary text-center' style={{ fontSize: '12rem' }} icon={faBabyCarriage} />
-            </div>
+            <Slide icon={faBabyCarriage} />
+            <Slide icon={faBaby} />
+            <Slide icon={faCakeCandles} />
+            <Slide icon={faBabyCarriage} />
         </div>
+    </div>
+));
+
+const Slide = memo(({ icon }: { icon: IconProp }) => (
+    <div
+        className='d-flex justify-content-center align-items-center'
+        style={{
+            width: '20rem',
+            height: '20rem',
+        }}
+    >
+        <FontAwesomeIcon className='text-primary text-center' style={{ fontSize: '12rem' }} icon={icon} />
     </div>
 ));

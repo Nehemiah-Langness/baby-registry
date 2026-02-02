@@ -4,9 +4,7 @@ import { DetailText } from '../components/detail-text';
 import { Calendar } from '../components/calendar/calendar';
 import { yardWork } from '../data/yard-work';
 import { SignUp } from '../components/sign-up';
-
-const yardWorkStartDate = new Date(2024, 6, 7);
-const yardWorkEndDate = new Date(2024, 7, 24);
+import { config } from '../config';
 
 export default function Trains() {
     return (
@@ -28,7 +26,7 @@ export default function Trains() {
                         <DetailText>Feel free to reserve a few consecutive days if you want to account for bad weather.</DetailText>
 
                         <div className='my-5'>
-                            <Calendar endDate={yardWorkEndDate} startDate={yardWorkStartDate} volunteers={yardWork} />
+                            <Calendar dueDate={config.calendar.dueDate} endDate={config.calendar.endDate} startDate={config.calendar.startDate} volunteers={yardWork} />
                         </div>
                         <SignUp />
                     </DetailSection>

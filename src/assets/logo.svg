@@ -3,7 +3,7 @@
 <svg class="logo" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
 	 viewBox="0 0 192 192" style="enable-background:new 0 0 192 192;" xml:space="preserve">
 	<style type="text/css">
-		.logo-st5{fill:#2272AF;}
+		.logo-st5{fill:currentColor;}
 	</style>
 	<g>
 		<path class="logo-st5" d="M97.6,165.8L97.6,165.8c-0.9,3.4-4.5,6.3-7.9,6.3H22.9c-6.3,0-10-5.3-8.4-11.7L48.2,26.2

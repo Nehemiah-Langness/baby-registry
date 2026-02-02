@@ -1,6 +1,7 @@
 import { faAmazon } from '@fortawesome/free-brands-svg-icons';
 import Diapers from '../assets/diapers.svg?react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { config } from '../config';
 
 export default function Registry() {
     return (
@@ -13,7 +14,7 @@ export default function Registry() {
                 <a
                     className='btn btn-dark rounded-circle d-flex flex-column justify-content-center align-items-center'
                     style={{ width: '15rem', height: '15rem' }}
-                    href='https://www.amazon.com/baby-reg/brainna-langness-august-2024-saintcharles/10GFEYPIMMBCY'
+                    href={config.registryUrl}
                     target='_blank'
                     rel='noreferrer'
                 >
@@ -24,7 +25,7 @@ export default function Registry() {
                     className='btn btn-dark rounded-circle d-flex flex-column justify-content-center align-items-center'
                     style={{ width: '15rem', height: '15rem' }}
                     href='https://everylife.com/collections/diaper-collection/products/everylife-diapers?variant=50896563405080'
-                    target='_blank'
+                    target={config.diaperUrl}
                     rel='noreferrer'
                 >
                     <Diapers height={'10rem'}/>

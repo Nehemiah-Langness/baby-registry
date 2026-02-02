@@ -1,4 +1,4 @@
-$primary: #2272af;
+$primary: hsl(159, 60%, 28%);
 $secondary: #abbac9;
 $danger: #b05f21;
 $info: #21b0a2;
@@ -89,5 +89,8 @@ body {
         bottom: 0;
         z-index: 2;
         aspect-ratio: unset;
+        background-color: rgba(var(--bs-primary-rgb), 0.2);
+        padding: 1.5rem;
+        backdrop-filter: blur(2px);
     }
 }

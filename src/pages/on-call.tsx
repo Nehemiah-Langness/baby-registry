@@ -6,9 +6,7 @@ import { Header } from '../components/header';
 import { tierOne } from '../data/tier-one';
 import { tierTwo } from '../data/tier-two';
 import { sitters } from '../data/sitters';
-
-const onCallStartDate = new Date(2024, 6, 14);
-const onCallEndDate = new Date(2024, 7, 24);
+import { config } from '../config';
 
 export default function OnCall() {
     return (
@@ -66,7 +64,7 @@ export default function OnCall() {
                     <div className='text-center mb-5'>
                         <Header>Tier 1 Schedule</Header>
                     </div>
-                    <Calendar endDate={onCallEndDate} startDate={onCallStartDate} volunteers={tierOne} />
+                    <Calendar dueDate={config.calendar.dueDate} endDate={config.calendar.endDate} startDate={config.calendar.startDate} volunteers={tierOne} />
                 </div>
             </div>
             <div className='bg-light'>
@@ -74,7 +72,7 @@ export default function OnCall() {
                     <div className='text-center mb-5'>
                         <Header>Tier 2 Schedule</Header>
                     </div>
-                    <Calendar endDate={onCallEndDate} startDate={onCallStartDate} volunteers={tierTwo} />
+                    <Calendar dueDate={config.calendar.dueDate} endDate={config.calendar.endDate} startDate={config.calendar.startDate} volunteers={tierTwo} />
                 </div>
             </div>
             <div className='bg-white'>
@@ -82,7 +80,7 @@ export default function OnCall() {
                     <div className='text-center mb-5'>
                         <Header>Baby Sitting Schedule</Header>
                     </div>
-                    <Calendar endDate={onCallEndDate} startDate={onCallStartDate} volunteers={sitters} />
+                    <Calendar dueDate={config.calendar.dueDate} endDate={config.calendar.endDate} startDate={config.calendar.startDate} volunteers={sitters} />
                 </div>
             </div>
         </>
