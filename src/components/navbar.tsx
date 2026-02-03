@@ -10,6 +10,13 @@ export function Navbar() {
         window.scrollTo({
             top: 0,
         });
+
+        const route = pathname.split('/').join('-');
+
+        document.documentElement.classList.add(`route-${encodeURIComponent(route)}`);
+        return () => {
+            document.documentElement.classList.remove(`route-${encodeURIComponent(route)}`);
+        };
     }, [pathname]);
 
     return <NavbarComponent fixed pathname={pathname} />;

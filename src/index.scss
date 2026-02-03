@@ -102,10 +102,16 @@ body {
     scroll-snap-align: start;
 }
 
-.page-container {
-    scroll-snap-type: y mandatory;
+html,
+body {
+    height: 100%;
+}
+
+.route-- {
+    scroll-snap-type: y proximity;
     scroll-behavior: smooth;
-    overflow-y: scroll;
-    // height: 100vh;
-    // height: 100dvh;
+
+    .page-footer {
+        display: none !important;
+    }
 }

@@ -13,6 +13,7 @@ import { config } from '../config';
 import { IconProp } from '@fortawesome/fontawesome-svg-core';
 import { NavbarComponent } from '../components/navbar';
 import { PageHeader } from '../components/page-header';
+import { Footer } from '../components/footer';
 
 export default function Home() {
     return (
@@ -75,30 +76,33 @@ export default function Home() {
                 </div>
             </div> */}
             <div className='bg-light d-flex flex-column justify-content-center full-page'>
-                <div className='container py-5'>
-                    <div className='text-center pb-5'>
-                        <Header>Shop our baby registry</Header>
-                    </div>
-                    <DetailSection>
-                        <DetailText>Even though we already have had a few kids already, there are some items that are worn out and could stand to be replaced.</DetailText>
-                        <DetailText>There is also always a need for on-going necessities such as diapers and wipes.</DetailText>
-                    </DetailSection>
-                    <br />
+                <div className='d-flex flex-column align-items-center justify-content-center flex-grow-1'>
+                    <div className='container py-5'>
+                        <div className='text-center pb-5'>
+                            <Header>Shop our baby registry</Header>
+                        </div>
+                        <DetailSection>
+                            <DetailText>Even though we already have had a few kids already, there are some items that are worn out and could stand to be replaced.</DetailText>
+                            <DetailText>There is also always a need for on-going necessities such as diapers and wipes.</DetailText>
+                        </DetailSection>
+                        <br />
 
-                    <DetailSection className='d-flex flex-column align-items-center gap-3'>
-                        <SubHeader>You can click on the link below to see our registry on Amazon.</SubHeader>
-                        <a className='btn btn-dark' href={config.registryUrl} target='_blank' rel='noreferrer'>
-                            <FontAwesomeIcon className='display-5' icon={faAmazon} />
-                        </a>
-                    </DetailSection>
-                    <br />
-                    <DetailSection className='d-flex flex-column align-items-center gap-3'>
-                        <SubHeader>Or send us diapers from the link below</SubHeader>
-                        <a className='btn btn-dark' href={config.diaperUrl} target='_blank' rel='noreferrer'>
-                            <Diapers height='3rem' />
-                        </a>
-                    </DetailSection>
+                        <DetailSection className='d-flex flex-column align-items-center gap-3'>
+                            <SubHeader>You can click on the link below to see our registry on Amazon.</SubHeader>
+                            <a className='btn btn-dark' href={config.registryUrl} target='_blank' rel='noreferrer'>
+                                <FontAwesomeIcon className='display-5' icon={faAmazon} />
+                            </a>
+                        </DetailSection>
+                        <br />
+                        <DetailSection className='d-flex flex-column align-items-center gap-3'>
+                            <SubHeader>Or send us diapers from the link below</SubHeader>
+                            <a className='btn btn-dark' href={config.diaperUrl} target='_blank' rel='noreferrer'>
+                                <Diapers height='3rem' />
+                            </a>
+                        </DetailSection>
+                    </div>
                 </div>
+                <Footer />
             </div>
         </div>
     );

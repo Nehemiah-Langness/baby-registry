@@ -9,9 +9,7 @@ export function Layout() {
             <div className='flex-grow-1'>
                 <Outlet />
             </div>
-            <Footer />
+            <Footer className='page-footer' />
         </div>
     );
 }
-
-
