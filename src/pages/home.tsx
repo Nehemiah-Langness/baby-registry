@@ -16,8 +16,8 @@ import { PageHeader } from '../components/page-header';
 
 export default function Home() {
     return (
-        <>
-            <div className='d-flex flex-column' style={{ minHeight: '100vh' }}>
+        <div className='page-container'>
+            <div className='d-flex flex-column full-page'>
                 <div className='opacity-0'>
                     <NavbarComponent />
                 </div>
@@ -33,38 +33,30 @@ export default function Home() {
                     </SubHeader>
                 </div>
             </div>
-
-            {/* <div className='bg-white'>
-                <div className='container py-5'>
-                    <div className='text-center pb-5'>
-                        <SubHeader>Watching our other kids</SubHeader>
+            <div className='bg-white d-flex flex-column justify-content-center full-page'>
+                <div className='d-flex flex-column align-items-center justify-content-center flex-grow-1'>
+                    <div className='container py-5'>
+                        <div className='text-center pb-5'>
+                            <Header>Bringing meals</Header>
+                        </div>
+                        <DetailSection>
+                            <DetailText>We would greatly appreciate having meals provided during the first days of having our newborn at home.</DetailText>
+                            <DetailText>We have no dietary restrictions or requirements, so anything you can cook we can eat.</DetailText>
+                            <DetailText>If you don't enjoy cooking, but still would like to provide food, you can have food delivered or drop-off takeout.</DetailText>
+                        </DetailSection>
                     </div>
-                    <DetailSection>
-                        <DetailText>We don't have any family close by, so we need to rely heavily on friends to stay with our kids while we are in the hospital.</DetailText>
-                        <DetailText>Before we can head to the hospital, we'll need someone to call who can get to our house quickly.</DetailText>
-                        <DetailText>Once the baby is born, we hope to be back after 6 hours, but if there are complications, we'll need sitters for up two days.</DetailText>
-                        <Link className='btn btn-outline-primary' to='/on-call'>
-                            If you want to help with baby-sitting and want more details, click here
+                    <div className='d-flex justify-content-center pb-5'>
+                        <Link className='btn btn-primary d-flex align-items-center gap-2' to='/meal-train'>
+                            <FontAwesomeIcon icon={faChevronRight} />
+                            View our meal train coverage
                         </Link>
-                    </DetailSection>
-                </div>
-            </div> */}
-            <div className='bg-white d-flex flex-column justify-content-center' style={{ minHeight: '75vh' }}>
-                <div className='container py-5'>
-                    <div className='text-center pb-5'>
-                        <Header>Bringing meals</Header>
                     </div>
-                    <DetailSection>
-                        <DetailText>We would greatly appreciate having meals provided during the first days of having our newborn at home.</DetailText>
-                        <DetailText>We have no dietary restrictions or requirements, so anything you can cook we can eat.</DetailText>
-                        <DetailText>If you don't enjoy cooking, but still would like to provide food, you can have food delivered or drop-off takeout.</DetailText>
-                    </DetailSection>
                 </div>
-                <div className='d-flex justify-content-center pb-5'>
-                    <Link className='btn btn-primary d-flex align-items-center gap-2' to='/meal-train'>
-                        <FontAwesomeIcon icon={faChevronRight} />
-                        View our meal train coverage
-                    </Link>
+
+                <div className='container text-center py-5'>
+                    <SubHeader>
+                        <FontAwesomeIcon icon={faChevronDown} bounce /> Shop our registry <FontAwesomeIcon icon={faChevronDown} bounce />
+                    </SubHeader>
                 </div>
             </div>
             {/* <div className='bg-light'>
@@ -82,7 +74,7 @@ export default function Home() {
                     </DetailSection>
                 </div>
             </div> */}
-            <div className='bg-light d-flex flex-column justify-content-center' style={{ minHeight: '75vh' }}>
+            <div className='bg-light d-flex flex-column justify-content-center full-page'>
                 <div className='container py-5'>
                     <div className='text-center pb-5'>
                         <Header>Shop our baby registry</Header>
@@ -108,7 +100,7 @@ export default function Home() {
                     </DetailSection>
                 </div>
             </div>
-        </>
+        </div>
     );
 }
 
