@@ -11,12 +11,14 @@ export function Calendar({
     volunteers,
     inactive,
     dueDate,
+    noInactiveWeeks,
 }: {
     startDate: Date;
     endDate: Date;
     dueDate: Date;
     volunteers: { date: Date; partial?: boolean; volunteers: string[] }[];
     inactive?: boolean;
+    noInactiveWeeks?: boolean;
 }) {
     const { end, first, last, start } = useMemo(() => {
         const normalizedStartDate = normalizeDate(startDate);
@@ -87,7 +89,7 @@ export function Calendar({
                     <div className='h2 fw-light text-center mb-1 mt-2'>{getMonth(month[0]?.[0]?.getMonth())}</div>
                     <div className='bg-white border container position-relative'>
                         {month.map((week, ii) =>
-                            week.every((d) => d < start || d > end) ? null : (
+                            week.every((d) => d < start || d > end) && noInactiveWeeks ? null : (
                                 <div key={ii} className='row'>
                                     {ii === 0 && new Array(7 - week.length).fill(0).map((_x, iii) => <div key={'filler' + iii} className='col border bg-light'></div>)}
                                     {week.map((day, iii) => (

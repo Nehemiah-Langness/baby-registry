@@ -55,39 +55,46 @@ export function Day({
         >
             {active ? (
                 <div
-                    className={`d-flex flex-column flex-grow-1 p-3 rounded ${
+                    className={`d-flex flex-column flex-grow-1 border shadow-sm overflow-hidden rounded ${
                         state === 'out-of-range'
                             ? 'bg-light text-secondary'
                             : state === 'covered'
-                              ? 'bg-success-subtle border-success-subtle'
+                              ? 'bg-success-subtle'
                               : state === 'partial'
-                                ? 'bg-danger-subtle border-danger-subtle'
-                                : 'bg-white'
+                                ? 'bg-danger-subtle'
+                                : 'bg-light'
                     }`}
                 >
-                    <div className='d-flex justify-content-between align-items-start'>
+                    <div className='d-flex justify-content-between align-items-start p-3'>
                         <div>
                             <span className='display-1'>
                                 {date.getDate()} {dueDate?.valueOf() === date.valueOf() ? <span className='text-primary fw-bold display-5'>Due Date!</span> : null}{' '}
                             </span>
                         </div>
+                        <div className='align-self-center'>Volunteers</div>
                         <div>
                             <button type='button' className='btn btn-close' onClick={() => setActive(false)}></button>
                         </div>
                     </div>
-                    <div>
-                        {coverage?.volunteers.map((volunteer, i) => (
-                            <div key={i} className='d-flex justify-content-between' style={{ maxWidth: '15rem' }}>
-                                <div className='fw-bold'>{volunteer.split('|')[1]}</div>
-                                <div>{volunteer.split('|')[0]}</div>
-                            </div>
-                        ))}
-                    </div>
+
                     {!coverage?.volunteers.length ? (
-                        <div className='d-flex align-items-center justify-content-center flex-grow-1'>
+                        <div className='d-flex align-items-center justify-content-center flex-grow-1 bg-white '>
                             <Link to={'/sign-up'}>We have no volunteers for this day - would you like to sign-up?</Link>
                         </div>
-                    ) : null}
+                    ) : (
+                        <div className='bg-white flex-grow-1 py-2 px-4 overflow-auto'>
+                            {coverage?.volunteers.map((volunteer, i) => {
+                                const [name, ...slots] = volunteer.split('|');
+                                const slot = slots.join('|');
+                                return (
+                                    <div key={i} className='d-flex justify-content-between'>
+                                        {!!slot && <div className='fw-bold'>{slot}</div>}
+                                        <div>{name}</div>
+                                    </div>
+                                );
+                            })}
+                        </div>
+                    )}
                 </div>
             ) : (
                 <>
@@ -104,9 +111,9 @@ export function Day({
                     </div>
                     <div className='d-none d-lg-block'>
                         {distinct(coverage?.volunteers ?? []).map(({ key: volunteer, values: instances }, i) => (
-                            <div key={i} className='d-flex justify-content-between' style={{ maxWidth: '15rem' }}>
+                            <div key={i} className='d-flex justify-content-between fs-12' style={{ maxWidth: '15rem' }}>
                                 <div>{volunteer.split('|')[0]}</div>
-                                <b>{`${instances.length} slot${instances.length === 1 ? '' : 's'}`}</b>
+                                {instances.length > 1 && <b>{`${instances.length} slot${instances.length === 1 ? '' : 's'}`}</b>}
                             </div>
                         ))}
                     </div>

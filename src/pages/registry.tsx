@@ -2,12 +2,17 @@ import { faAmazon } from '@fortawesome/free-brands-svg-icons';
 import Diapers from '../assets/diapers.svg?react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { config } from '../config';
+import { NavbarComponent } from '../components/navbar';
+import { PageHeader } from '../components/page-header';
 
 export default function Registry() {
     return (
         <>
+            <div className='opacity-0'>
+                <NavbarComponent />
+            </div>
             <div className='d-flex flex-column align-items-center py-5'>
-                <div className='display-5 mb-4'>Baby Registries</div>
+                <PageHeader>Baby Registries</PageHeader>
             </div>
 
             <div className='d-flex justify-content-center gap-5'>
@@ -28,7 +33,7 @@ export default function Registry() {
                     target={config.diaperUrl}
                     rel='noreferrer'
                 >
-                    <Diapers height={'10rem'}/>
+                    <Diapers height={'10rem'} />
                     Diapers
                 </a>
             </div>
