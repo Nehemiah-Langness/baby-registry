@@ -6,4 +6,11 @@ export const config = {
         startDate: new Date(2026, 8, 13),
         endDate: new Date(2026, 9, 24),
     },
+    features: {
+        mealTrain: true,
+        onCall: false,
+        yardTrain: false,
+        registries: true,
+        signUp: true,
+    },
 };
